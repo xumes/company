@@ -6,7 +6,7 @@ const RenderCard = props => {
     return (
         <div className='col-sm-4'>
             <div className='thumbnail'>
-                <img src='paris.jpg' alt='Paris' width='400' height='300' />
+                <img src='paris.jpg' alt='imagem' width='400' height='300' />
                 <p><strong>{content.title}</strong></p>
                 <p>{content.subTitle}</p>
             </div>

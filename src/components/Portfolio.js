@@ -1,4 +1,6 @@
 import React, { Component } from 'react'
+
+import base from '../base'
 import RenderCard from './RenderCard';
 
 class Portfolio extends Component {
@@ -6,22 +8,19 @@ class Portfolio extends Component {
         super(props)
 
         this.state = {
-            portfolio: {
-                1: {
-                    title: 'Paris',
-                    subTitle: 'Bounjour'
-                },
-                2: {
-                    title: 'New York',
-                    subTitle: 'Liberty Statue'
-                },
-                3: {
-                    title: 'San Francisco',
-                    subTitle: 'Alcatraz'
-                }
-            },
-            teste: 'Funciona'
+            portfolio: { }
         }
+
+        base.syncState('portfolio', {
+            context: this,
+            state: 'portfolio',
+            asArray: false
+        })
+    }
+
+    componentDidMount() {
+        console.log('estou aqui')
+       
     }
 
     render() {
@@ -35,7 +34,7 @@ class Portfolio extends Component {
 
                         Object.keys(this.state.portfolio)
                             .map(key => {
-                                return  <RenderCard key={key} content={this.state.portfolio[key]} />
+                                return <RenderCard key={key} content={this.state.portfolio[key]} />
                             })
                     }
 
